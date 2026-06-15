@@ -70,11 +70,12 @@ vue3-glm/
 │   ├── ch03-template/
 │   ├── ch04-vite-start/
 │   └── ch05-components/
-└── project/
-    ├── user-admin/            ← 实战章（6-11）累积而成的完整 CRUD 项目（JS 版）
-    │   ├── db.json            ← json-server 假数据
-    │   └── src/ ...
-    └── user-admin-ts/         ← 第 12 章扩展篇：把 JS 版迁移成 TypeScript 的版本
+├── project/
+│   ├── user-admin/            ← 实战章（6-11）累积而成的完整 CRUD 项目（JS 版）
+│   │   ├── db.json            ← json-server 假数据
+│   │   └── src/ ...
+│   └── user-admin-ts/         ← 第 12 章扩展篇：把 JS 版迁移成 TypeScript 的版本
+└── vite-tutorial/             ← 独立的 Vite 构建工具教程（平行教程，可单独学）
 ```
 
 ### 两种代码，两种用法
@@ -152,6 +153,9 @@ npm -v    # 应输出 9.x 或更高
 
 **扩展篇（正文之外）**
 - [第 12 章 · 给 user-admin 上 TypeScript：迁移实战](docs/12-TypeScript迁移实战.md)
+
+**🛠️ 工具专项（独立教程）**
+- [Vite 构建工具从入门到进阶](vite-tutorial/README.md) —— 平行教程，专讲 Vite 本身，可单独学
 
 **附录**
 - [A · jQuery → Vue 速查对照表](docs/appendices/A-jQuery到Vue速查表.md)
