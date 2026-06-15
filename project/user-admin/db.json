@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "张三",
+      "email": "zhangsan@example.com",
+      "phone": "13800000001",
+      "role": "admin",
+      "status": 1
+    },
+    {
+      "id": 2,
+      "name": "李四",
+      "email": "lisi@example.com",
+      "phone": "13800000002",
+      "role": "editor",
+      "status": 1
+    },
+    {
+      "id": 3,
+      "name": "王五",
+      "email": "wangwu@example.com",
+      "phone": "13800000003",
+      "role": "editor",
+      "status": 0
+    },
+    {
+      "id": 4,
+      "name": "赵六",
+      "email": "zhaoliu@example.com",
+      "phone": "13800000004",
+      "role": "viewer",
+      "status": 1
+    },
+    {
+      "id": 5,
+      "name": "孙七",
+      "email": "sunqi@example.com",
+      "phone": "13800000005",
+      "role": "admin",
+      "status": 1
+    },
+    {
+      "id": 6,
+      "name": "周八",
+      "email": "zhouba@example.com",
+      "phone": "13800000006",
+      "role": "viewer",
+      "status": 0
+    },
+    {
+      "id": 7,
+      "name": "吴九",
+      "email": "wujiu@example.com",
+      "phone": "13800000007",
+      "role": "editor",
+      "status": 1
+    },
+    {
+      "id": 8,
+      "name": "郑十",
+      "email": "zhengshi@example.com",
+      "phone": "13800000008",
+      "role": "admin",
+      "status": 1
+    },
+    {
+      "id": 9,
+      "name": "钱十一",
+      "email": "qian11@example.com",
+      "phone": "13800000009",
+      "role": "viewer",
+      "status": 1
+    },
+    {
+      "id": 10,
+      "name": "孔十二",
+      "email": "kong12@example.com",
+      "phone": "13800000010",
+      "role": "editor",
+      "status": 0
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo · Vue 版</title>
+  <!-- 通过 CDN 引入 Vue3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #333; }
+    h1 { font-size: 20px; }
+    input { padding: 6px 10px; font-size: 14px; }
+    button { padding: 6px 14px; font-size: 14px; cursor: pointer; }
+    ul { padding-left: 0; list-style: none; }
+    li { padding: 8px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+    li button { padding: 2px 8px; font-size: 12px; color: #c00; border: 1px solid #e0e0e0; background: #fff; }
+    .count { color: #888; font-size: 13px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <!-- Vue 接管的区域 -->
+  <div id="app">
+    <h1>Todo · Vue 版</h1>
+    <input v-model="text" placeholder="输入任务" @keyup.enter="add" />
+    <button @click="add">添加</button>
+
+    <ul>
+      <li v-for="(todo, i) in todos">
+        <span>{{ todo }}</span>
+        <button @click="todos.splice(i, 1)">删除</button>
+      </li>
+    </ul>
+
+    <p class="count">共 {{ todos.length }} 条任务</p>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const text = ref('')           // 输入框内容
+        const todos = ref([])          // 任务列表
+
+        function add() {
+          if (!text.value.trim()) return
+          todos.value.push(text.value.trim())  // 只改数据，列表自动更新
+          text.value = ''                        // 只改数据，输入框自动清空
+        }
+
+        return { text, todos, add }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

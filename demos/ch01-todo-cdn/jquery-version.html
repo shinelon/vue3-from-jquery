@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo · jQuery 版（对照用）</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #333; }
+    h1 { font-size: 20px; }
+    input { padding: 6px 10px; font-size: 14px; }
+    button { padding: 6px 14px; font-size: 14px; cursor: pointer; }
+    ul { padding-left: 0; list-style: none; }
+    li { padding: 8px 0; border-bottom: 1px solid #eee; }
+    .count { color: #888; font-size: 13px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Todo · jQuery 版（对照用）</h1>
+  <input id="input" placeholder="输入任务" />
+  <button id="add">添加</button>
+  <ul id="list"></ul>
+  <p class="count" id="count">共 0 条任务</p>
+
+  <script>
+    var todos = []
+
+    function render() {
+      // ↓↓↓ 手动同步：数据变了，得自己重新渲染整个列表 ↓↓↓
+      var $list = $('#list').empty()
+      todos.forEach(function (t) {
+        $list.append('<li>' + t + '</li>')
+      })
+      $('#count').text('共 ' + todos.length + ' 条任务')
+    }
+
+    $('#add').on('click', function () {
+      var text = $('#input').val().trim()
+      if (!text) return
+      todos.push(text)
+      render()                  // 数据变了，记得手动刷新视图
+      $('#input').val('')       // 手动清空输入框
+    })
+
+    $('#input').on('keyup', function (e) {
+      if (e.key === 'Enter') $('#add').click()
+    })
+  </script>
+</body>
+</html>
