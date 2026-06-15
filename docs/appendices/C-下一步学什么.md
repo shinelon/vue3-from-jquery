@@ -26,6 +26,8 @@
 
 资源：[Vue 官方 TS 指南](https://cn.vuejs.org/guide/typescript/overview.html)。先把 JS 的 Vue 写熟，再上 TS，顺序别反。
 
+> 👉 本教程已补一篇动手实战：[第 12 章 · 给 user-admin 上 TypeScript](../12-TypeScript迁移实战.md)——带你把前面写的 user-admin 整体迁移成 TS，边迁边学。
+
 ### 3. 装一个代码规范工具
 
 真实团队协作必备：

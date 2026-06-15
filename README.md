@@ -59,6 +59,7 @@ vue3-glm/
 │   ├── 09-路由.md
 │   ├── 10-Pinia状态管理.md
 │   ├── 11-收尾打包部署.md
+│   ├── 12-TypeScript迁移实战.md
 │   └── appendices/
 │       ├── A-jQuery到Vue速查表.md
 │       ├── B-常见报错与调试.md
@@ -70,9 +71,10 @@ vue3-glm/
 │   ├── ch04-vite-start/
 │   └── ch05-components/
 └── project/
-    └── user-admin/            ← 实战章（6-11）累积而成的完整 CRUD 项目
-        ├── db.json            ← json-server 假数据
-        └── src/ ...
+    ├── user-admin/            ← 实战章（6-11）累积而成的完整 CRUD 项目（JS 版）
+    │   ├── db.json            ← json-server 假数据
+    │   └── src/ ...
+    └── user-admin-ts/         ← 第 12 章扩展篇：把 JS 版迁移成 TypeScript 的版本
 ```
 
 ### 两种代码，两种用法
@@ -147,6 +149,9 @@ npm -v    # 应输出 9.x 或更高
 - [第 9 章 · 路由 Vue Router：多页面](docs/09-路由.md)
 - [第 10 章 · 状态管理 Pinia：登录态（先痛后甜）](docs/10-Pinia状态管理.md)
 - [第 11 章 · 收尾：loading / 错误 / 打包部署](docs/11-收尾打包部署.md)
+
+**扩展篇（正文之外）**
+- [第 12 章 · 给 user-admin 上 TypeScript：迁移实战](docs/12-TypeScript迁移实战.md)
 
 **附录**
 - [A · jQuery → Vue 速查对照表](docs/appendices/A-jQuery到Vue速查表.md)
