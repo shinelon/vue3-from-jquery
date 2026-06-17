@@ -23,7 +23,11 @@ mkdocs serve                            # 浏览器打开 http://127.0.0.1:8000
 
 - 站点内容根在 `docs-site/`（`vue3/` + `vite/` 两套教程，配置见 `mkdocs.yml`）；
 - `mkdocs build` 可生成纯静态站点到 `site/`，便于部署；
-- 原 `docs/`、`demos/`、`project/`、`vite-tutorial/` 保持不变，`docs-site/` 为站点专用副本。
+- **单一真源**：教程正文以 `docs/`、`vite-tutorial/docs/` 等原件为准；`docs-site/` 是由脚本生成的站点副本。改了原件后跑一次同步即可：
+
+  ```bash
+  bash scripts/sync-docs-site.sh   # 从原件重新生成 docs-site，并跑 strict 构建校验
+  ```
 
 ---
 
