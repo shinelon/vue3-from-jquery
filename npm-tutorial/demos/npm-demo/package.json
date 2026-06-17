@@ -1,0 +1,13 @@
+{
+  "name": "npm-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "npm 速查教程配套 demo：装一个依赖（lodash）、跑一个脚本",
+  "scripts": {
+    "pick": "node pick.js"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

@@ -95,7 +95,8 @@ vue3-glm/
 │   │   ├── db.json            ← json-server 假数据
 │   │   └── src/ ...
 │   └── user-admin-ts/         ← 第 12 章扩展篇：把 JS 版迁移成 TypeScript 的版本
-└── vite-tutorial/             ← 独立的 Vite 构建工具教程（平行教程，可单独学）
+├── vite-tutorial/             ← 独立的 Vite 构建工具教程（平行教程，可单独学）
+└── npm-tutorial/              ← 独立的 npm 速查教程（前置/工具速查，可单独学）
 ```
 
 ### 两种代码，两种用法
@@ -132,6 +133,8 @@ npm -v    # 应输出 9.x 或更高
 ```
 
 > 装包慢的话，可以换成国内镜像：`npm config set registry https://registry.npmmirror.com`
+>
+> 📦 对 `npm` 完全零基础？先花 15 分钟过一遍 [npm 极简速查教程](npm-tutorial/README.md)，再回来会顺畅很多。
 
 ### 2. 编辑器：VS Code + Vue 官方插件
 
@@ -176,6 +179,7 @@ npm -v    # 应输出 9.x 或更高
 
 **🛠️ 工具专项（独立教程）**
 - [Vite 构建工具从入门到进阶](vite-tutorial/README.md) —— 平行教程，专讲 Vite 本身，可单独学
+- [npm 极简速查](npm-tutorial/README.md) —— 前置/工具速查，15 分钟搞懂 npm
 
 **附录**
 - [A · jQuery → Vue 速查对照表](docs/appendices/A-jQuery到Vue速查表.md)

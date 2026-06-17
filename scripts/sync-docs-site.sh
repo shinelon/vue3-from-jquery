@@ -26,7 +26,8 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 SITE="docs-site"
 
-# 仅复制 git 跟踪文件（排除 node_modules/dist 等未跟踪产物），保留目录结构
+# 复制源目录下全部非忽略文件（已跟踪 + 未跟踪，排除 node_modules/dist 等），
+# 这样新建/未提交的原件也能被同步，保留目录结构。
 copy_tracked() {
   local src="$1" dst="$2"
   mkdir -p "$dst"
@@ -38,13 +39,13 @@ copy_tracked() {
     mkdir -p "$(dirname "$target")"
     cp "$f" "$target"
     n=$((n+1))
-  done < <(git -c core.quotepath=false ls-files -- "$src")
+  done < <(git -c core.quotepath=false ls-files --cached --others --exclude-standard -- "$src")
   echo "  $src → $dst ($n 文件)"
 }
 
 echo "==> 清理旧内容树（保留 index.md）"
-rm -rf "$SITE/vue3" "$SITE/vite"
-mkdir -p "$SITE/vue3" "$SITE/vite"
+rm -rf "$SITE/vue3" "$SITE/vite" "$SITE/npm"
+mkdir -p "$SITE/vue3" "$SITE/vite" "$SITE/npm"
 
 echo "==> 复制原件"
 copy_tracked docs                "$SITE/vue3/docs"
@@ -52,6 +53,8 @@ copy_tracked demos               "$SITE/vue3/demos"
 copy_tracked project             "$SITE/vue3/project"
 copy_tracked vite-tutorial/docs  "$SITE/vite/docs"
 copy_tracked vite-tutorial/demos "$SITE/vite/demos"
+copy_tracked npm-tutorial/docs   "$SITE/npm/docs"
+copy_tracked npm-tutorial/demos  "$SITE/npm/demos"
 
 echo "==> 提取 vite-notes（git 分支 vite/08-final 最终成品）"
 mkdir -p "$SITE/vite/project/vite-notes"
@@ -61,10 +64,16 @@ git archive vite/08-final -- vite-tutorial/project/vite-notes \
 rm -f "$SITE/vite/project/vite-notes/README.md"
 
 echo "==> 应用 MkDocs 链接适配"
-# 1) vite 第0章跨教程链接
+# 1) vite 第0章跨教程链接：../../docs/ → ../../vue3/docs/
 sed -i 's#\.\./\.\./docs/#../../vue3/docs/#g' "$SITE/vite/docs/00-为什么是Vite.md"
 # 2) vite 第11章 lib-mode 无 index.html，目录链接改指 README.md
 sed -i 's#(\.\./demos/lib-mode/)#(../demos/lib-mode/README.md)#g' "$SITE/vite/docs/11-库模式.md"
+# 3) vue3 第4章 → npm 教程入口（docs-site 里 npm 的 README 未拷入，改指其主文档）
+sed -i 's#\.\./npm-tutorial/README\.md#../../npm/docs/00-npm速查.md#g' "$SITE/vue3/docs/04-从CDN到Vite.md"
+# 4) npm 正文 → vue3 教程（docs-site 里 vue3 正文在 vue3/docs/ 下）
+sed -i 's#\.\./\.\./docs/#../../vue3/docs/#g' "$SITE/npm/docs/00-npm速查.md"
+# 5) npm 正文 → vite 教程入口（docs-site 里 vite 的 README 未拷入，改指其主文档）
+sed -i 's#\.\./\.\./vite-tutorial/README\.md#../../vite/docs/00-为什么是Vite.md#g' "$SITE/npm/docs/00-npm速查.md"
 
 echo "==> 删除与 index.html 冲突的 README"
 rm -f "$SITE/vue3/demos/ch04-vite-start/README.md" \

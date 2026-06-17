@@ -131,3 +131,8 @@ nav:
           - B · 常见报错调试: vite/docs/appendices/B-常见报错调试.md
           - C · 下一步: vite/docs/appendices/C-下一步.md
       - 示例 demo · lib-mode（库模式）: vite/demos/lib-mode/README.md
+
+  - npm 速查:
+      - npm 极简速查（正文）: npm/docs/00-npm速查.md
+      - 附录:
+          - A · npm 命令速查表: npm/docs/appendices/A-命令速查表.md

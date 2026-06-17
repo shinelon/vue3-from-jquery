@@ -38,7 +38,7 @@
 
 ## 📚 从这里开始
 
-本站收录两套教程，从顶部标签页切换，左侧目录即为完整章节导航。
+本站收录三套教程，从顶部标签页切换，左侧目录即为完整章节导航。
 
 **一、Vue3 入门教程** —— 从 jQuery 平滑迁移到 Vue3 + Vite，搭出一个 CRUD 用户管理系统。
 
@@ -51,10 +51,16 @@
 :material-arrow-right: [第 0 章 · 为什么是 Vite](vite/docs/00-为什么是Vite.md) ·
 [第 1 章 · 十分钟建项目](vite/docs/01-十分钟建项目.md)
 
+**三、npm 极简速查**（前置/工具速查，15 分钟读完）—— 零基础搞懂 npm：装依赖、`npm run`、镜像、排错。
+
+:material-arrow-right: [npm 极简速查（正文）](npm/docs/00-npm速查.md) ·
+[命令速查表](npm/docs/appendices/A-命令速查表.md)
+
 **附录速查**：
 [Vue3 · jQuery→Vue 速查表](vue3/docs/appendices/A-jQuery到Vue速查表.md) ·
 [Vue3 · 常见报错与调试](vue3/docs/appendices/B-常见报错与调试.md) ·
-[Vite · vite.config 速查](vite/docs/appendices/A-vite.config速查.md)
+[Vite · vite.config 速查](vite/docs/appendices/A-vite.config速查.md) ·
+[npm · 命令速查表](npm/docs/appendices/A-命令速查表.md)
 
 ---
 
