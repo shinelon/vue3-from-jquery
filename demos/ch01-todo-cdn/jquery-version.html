@@ -29,7 +29,7 @@
       // ↓↓↓ 手动同步：数据变了，得自己重新渲染整个列表 ↓↓↓
       var $list = $('#list').empty()
       todos.forEach(function (t) {
-        $list.append('<li>' + t + '</li>')
+        $('<li>').text(t).appendTo($list)
       })
       $('#count').text('共 ' + todos.length + ' 条任务')
     }

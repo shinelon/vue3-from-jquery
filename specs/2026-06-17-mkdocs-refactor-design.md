@@ -1,5 +1,15 @@
 # 设计：将教程重构为 MkDocs（Material）站点
 
+> **⚠️ 现状勘误（落地后演进，以仓库现状为准）**
+>
+> 本文档记录的是 MkDocs 重构最初的设计决策。落地后有三处发生了演进，**实际配置以 `mkdocs.yml`、根 `README.md` 为准**：
+>
+> 1. **教程范围**：已从「Vue3 + Vite 两套」扩展为**三套**，新增 `npm` 速查教程（`docs-site/npm/`）。下文凡写「两套」处均应理解为已含 npm。
+> 2. **搜索分词语言**：`plugins.search.lang` 已从 `[en, ja]` 调整为 **`[en]`**（ja 在 lunr 下并不能真正提升中文召回，且有构建报错风险），见 `mkdocs.yml` 注释。
+> 3. **`docs-site/` 定位**：已从「教程唯一源」调整为**「由 `scripts/sync-docs-site.sh` 生成的站点副本」**；正文单一真源仍是原件（`docs/`、`vite-tutorial/docs/` 等），原件保留不删。
+>
+> 其余决策（Material 主题、`use_directory_urls: false`、`font: false` 等）与现状一致。
+
 - 日期：2026-06-17
 - 目标：把仓库内两套教程（主 Vue3 教程 + Vite 工具教程）重构为一个 Python MkDocs 站点。
 - 决策（已与用户确认）：

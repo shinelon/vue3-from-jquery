@@ -21,7 +21,7 @@ pip install -r requirements-docs.txt   # 安装 mkdocs + mkdocs-material
 mkdocs serve                            # 浏览器打开 http://127.0.0.1:8000
 ```
 
-- 站点内容根在 `docs-site/`（`vue3/` + `vite/` 两套教程，配置见 `mkdocs.yml`）；
+- 站点内容根在 `docs-site/`（`vue3/` + `vite/` + `npm` 三套教程，配置见 `mkdocs.yml`）；
 - `mkdocs build` 可生成纯静态站点到 `site/`，便于部署；
 - **单一真源**：教程正文以 `docs/`、`vite-tutorial/docs/` 等原件为准；`docs-site/` 是由脚本生成的站点副本。改了原件后跑一次同步即可：
 
@@ -102,18 +102,18 @@ vue3-glm/
 ### 两种代码，两种用法
 
 - **`demos/`（第 1~5 章）**：每章一个**独立小 demo**，互不依赖。基础概念用它练，打开就能跑，聚焦当章知识点。
-- **`project/user-admin/`（第 6~11 章）**：一个**逐渐长大的完整项目**。每章用 git 分支标记进度：
+- **`project/user-admin/`（第 6~11 章）**：一个**逐渐长大的完整项目**。磁盘上的代码是**最终成品（≈ 第 11 章状态）**，仓库里**并未为每章单独建 git 分支**。各章的演进阶段见 [`project/user-admin/README.md`](project/user-admin/README.md) 的「章节进度对照」表：
 
-  | 分支 | 对应章节 | 状态 |
+  | 阶段 | 章节 | 内容 |
   |---|---|---|
   | `ch06-init` | 第6章 | 脚手架 + Element Plus + json-server |
   | `ch07-list` | 第7章 | 列表与查询 |
   | `ch08-form` | 第8章 | 新增与编辑 |
   | `ch09-router` | 第9章 | 路由 |
   | `ch10-pinia` | 第10章 | Pinia 状态管理 |
-  | `ch11-deploy` / `main` | 第11章 | 收尾、打包、最终成品 |
+  | `ch11-deploy` | 第11章 | 收尾、打包、最终成品（= 当前磁盘状态） |
 
-  想看"第 7 章做完时代码长啥样"，`git checkout ch07-list` 即可对照。
+  想看“第 7 章做完时代码长啥样”，可按上表自行 `git init` 后分阶段提交，再 `git checkout ch07-list` 对照。
 
 ---
 
