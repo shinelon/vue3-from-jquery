@@ -11,6 +11,22 @@
 
 ---
 
+## 🖥️ 用 MkDocs 本地预览（推荐阅读方式）
+
+除了直接看 `docs/` 里的 Markdown，本仓库还配了一个 **MkDocs + Material** 文档站点，带顶部导航、全文搜索、代码高亮、暗色模式和可运行 demo 内嵌预览。
+
+```bash
+# 需要 Python 3.10+（装好 pip 即可）
+pip install -r requirements-docs.txt   # 安装 mkdocs + mkdocs-material
+mkdocs serve                            # 浏览器打开 http://127.0.0.1:8000
+```
+
+- 站点内容根在 `docs-site/`（`vue3/` + `vite/` 两套教程，配置见 `mkdocs.yml`）；
+- `mkdocs build` 可生成纯静态站点到 `site/`，便于部署；
+- 原 `docs/`、`demos/`、`project/`、`vite-tutorial/` 保持不变，`docs-site/` 为站点专用副本。
+
+---
+
 ## 👤 这份教程写给谁
 
 - 你写过 jQuery，熟悉 `$('#id')`、`$.ajax`、表单和表格的增删改查；

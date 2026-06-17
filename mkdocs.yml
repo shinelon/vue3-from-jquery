@@ -1,0 +1,129 @@
+# =============================================================================
+# MkDocs 配置 —— Vue3 入门教程（jQuery 程序员向）+ Vite 工具教程
+#
+# 快速开始：
+#   pip install -r requirements-docs.txt
+#   mkdocs serve            # 本地预览 http://127.0.0.1:8000
+#   mkdocs build            # 产物输出到 site/
+# =============================================================================
+
+site_name: Vue3 入门教程 · jQuery 程序员向
+site_description: >-
+  从 jQuery 的世界，平滑迁移到现代 Vue3 + Vite 开发。
+  全文以「jQuery 写法 → Vue 写法 → 为什么更好」三栏对照为主线，
+  从零搭出一个 CRUD 用户管理系统；另附 Vite 构建工具平行教程。
+docs_dir: docs-site
+
+# 主题：Material
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs          # 顶部标签页（首页 / Vue3 / Vite）
+    - navigation.sections      # 分组分隔
+    - navigation.top           # 返回顶部按钮
+    - navigation.indexes       # 分区首页
+    - search.suggest           # 搜索建议
+    - search.highlight         # 搜索高亮
+    - content.code.copy        # 代码块一键复制
+    - content.code.annotate    # 代码注释
+    - toc.follow               # 侧边目录跟随滚动
+  palette:
+    # 明色（跟随系统）
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换至暗色模式
+    # 暗色（跟随系统）
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换至明色模式
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
+
+# Markdown 扩展
+markdown_extensions:
+  - admonition                 # 提示框（!、?）
+  - pymdownx.details           # 可折叠详情
+  - pymdownx.superfences       # 代码块增强 / 嵌套
+  - pymdownx.highlight:        # 代码高亮
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite      # 行内代码高亮
+  - pymdownx.tabbed:
+      alternate_style: true    # 标签页代码块
+  - pymdownx.tasklist:         # 任务清单 - [ ]
+      custom_checkbox: true
+  - pymdownx.emoji:            # emoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:                       # 目录
+      permalink: true
+  - attr_list                  # 属性语法（图片宽度等）
+  - md_in_html                 # 在 HTML 中写 md
+  - tables                     # 表格
+  - def_list                   # 定义列表
+
+# 插件
+plugins:
+  - search:
+      # 借日语分词近似支持中文搜索（lunr 内置；无额外依赖）
+      # 如构建报错可回退为 lang: [en]
+      lang:
+        - en
+        - ja
+
+# 导航
+nav:
+  - 首页: index.md
+
+  - Vue3 教程:
+      - 序言：为什么 jQuery 程序员要学 Vue: vue3/docs/00-序言.md
+      - 前置：ES6 极简速查: vue3/docs/00b-ES6极简速查.md
+      - 第 1 章 · CDN 热身 Todo: vue3/docs/01-CDN热身-Todo.md
+      - 第 2 章 · 响应式：告别手动改 DOM: vue3/docs/02-响应式.md
+      - 第 3 章 · 模板语法：v-if / v-for / v-model / v-on: vue3/docs/03-模板语法.md
+      - 第 4 章 · 从 CDN 到 Vite: vue3/docs/04-从CDN到Vite.md
+      - 第 5 章 · 组件化：拆分与复用: vue3/docs/05-组件化.md
+      - 第 6 章 · 项目搭建：脚手架 + Element Plus + json-server: vue3/docs/06-CRUD项目搭建.md
+      - 第 7 章 · 列表与查询：el-table + axios + 分页: vue3/docs/07-列表与查询.md
+      - 第 8 章 · 新增与编辑：el-form + 校验 + 弹窗: vue3/docs/08-新增与编辑.md
+      - 第 9 章 · 路由 Vue Router：多页面: vue3/docs/09-路由.md
+      - 第 10 章 · 状态管理 Pinia：登录态: vue3/docs/10-Pinia状态管理.md
+      - 第 11 章 · 收尾：loading / 错误 / 打包部署: vue3/docs/11-收尾打包部署.md
+      - 第 12 章 · 给 user-admin 上 TypeScript：迁移实战: vue3/docs/12-TypeScript迁移实战.md
+      - 附录:
+          - A · jQuery → Vue 速查对照表: vue3/docs/appendices/A-jQuery到Vue速查表.md
+          - B · 常见报错与调试: vue3/docs/appendices/B-常见报错与调试.md
+          - C · 下一步学什么: vue3/docs/appendices/C-下一步学什么.md
+
+  - Vite 工具教程:
+      - 第 0 章 · 为什么是 Vite: vite/docs/00-为什么是Vite.md
+      - 第 1 章 · 十分钟建项目: vite/docs/01-十分钟建项目.md
+      - 第 2 章 · 看懂项目结构: vite/docs/02-看懂项目结构.md
+      - 第 3 章 · 路径别名: vite/docs/03-路径别名.md
+      - 第 4 章 · 环境变量: vite/docs/04-环境变量.md
+      - 第 5 章 · 开发服务器与代理: vite/docs/05-开发服务器与代理.md
+      - 第 6 章 · HMR 热更新原理: vite/docs/06-HMR热更新原理.md
+      - 第 7 章 · 静态资源与 CSS: vite/docs/07-静态资源与CSS.md
+      - 第 8 章 · 插件机制初识: vite/docs/08-插件机制初识.md
+      - 第 9 章 · 构建与产物: vite/docs/09-构建与产物.md
+      - 第 10 章 · 部署: vite/docs/10-部署.md
+      - 第 11 章 · 库模式: vite/docs/11-库模式.md
+      - 第 12 章 · 自定义插件: vite/docs/12-自定义插件.md
+      - 第 13 章 · SSR 概览: vite/docs/13-SSR概览.md
+      - 第 14 章 · 生态与下一步: vite/docs/14-生态与下一步.md
+      - 小结 · 部署上线: vite/docs/小结-部署上线.md
+      - 附录:
+          - A · vite.config 速查: vite/docs/appendices/A-vite.config速查.md
+          - B · 常见报错调试: vite/docs/appendices/B-常见报错调试.md
+          - C · 下一步: vite/docs/appendices/C-下一步.md

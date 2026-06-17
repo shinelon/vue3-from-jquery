@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>响应式 demo · 商品计算器</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #333; }
+    h1 { font-size: 20px; }
+    p { font-size: 15px; line-height: 2; }
+    button { padding: 4px 12px; font-size: 14px; cursor: pointer; }
+    .qty { display: inline-block; min-width: 30px; text-align: center; font-weight: bold; }
+    .total { font-size: 20px; color: #e63946; font-weight: bold; }
+    hr { border: none; border-top: 1px dashed #ccc; margin: 16px 0; }
+    label { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>商品计算器 · 响应式 demo</h1>
+
+    <p>单价：￥{{ price }}</p>
+
+    <p>
+      数量：
+      <button @click="dec">-</button>
+      <span class="qty">{{ quantity }}</span>
+      <button @click="inc">+</button>
+    </p>
+
+    <p>
+      <label>
+        <input type="checkbox" v-model="vip" /> 会员（打八折）
+      </label>
+    </p>
+
+    <hr>
+
+    <p>总价：<span class="total">￥{{ total }}</span></p>
+  </div>
+
+  <script>
+    const { createApp, ref, computed } = Vue
+
+    createApp({
+      setup() {
+        const price = ref(10)        // 单价
+        const quantity = ref(1)      // 数量
+        const vip = ref(false)       // 是否会员
+
+        // 总价 = 单价 × 数量 × 折扣（依赖 price/quantity/vip，全自动）
+        const total = computed(() => {
+          const discount = vip.value ? 0.8 : 1
+          return price.value * quantity.value * discount
+        })
+
+        function inc() {
+          if (quantity.value < 99) quantity.value++
+        }
+        function dec() {
+          if (quantity.value > 1) quantity.value--
+        }
+
+        return { price, quantity, vip, total, inc, dec }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

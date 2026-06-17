@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模板语法 demo · 带筛选的任务列表</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; color: #333; }
+    h1 { font-size: 20px; }
+    .filters { margin: 12px 0; display: flex; gap: 16px; }
+    .filters label { cursor: pointer; font-size: 14px; }
+    input[type="text"] { padding: 6px 10px; font-size: 14px; width: 60%; }
+    button { padding: 6px 12px; font-size: 13px; cursor: pointer; }
+    ul { padding-left: 0; list-style: none; }
+    li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 8px; }
+    li span { flex: 1; }
+    li.done span { text-decoration: line-through; color: #aaa; }
+    li button { color: #c00; border: 1px solid #eee; background: #fff; }
+    .empty { color: #999; font-size: 14px; padding: 16px 0; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>任务列表 · 模板语法综合 demo</h1>
+
+    <!-- 添加任务：v-model + @click + @keyup.enter -->
+    <div>
+      <input type="text" v-model.trim="text" placeholder="添加任务，回车提交" @keyup.enter="add" />
+      <button @click="add">添加</button>
+    </div>
+
+    <!-- 筛选：v-model 单选绑定 -->
+    <div class="filters">
+      <label><input type="radio" value="all" v-model="filter" /> 全部</label>
+      <label><input type="radio" value="todo" v-model="filter" /> 未完成</label>
+      <label><input type="radio" value="done" v-model="filter" /> 已完成</label>
+    </div>
+
+    <!-- 列表：v-for + :key + :class 条件样式 + v-model 绑对象属性 -->
+    <ul>
+      <li v-for="t in filtered" :key="t.id" :class="{ done: t.done }">
+        <input type="checkbox" v-model="t.done" />
+        <span>{{ t.text }}</span>
+        <button @click="remove(t.id)">删除</button>
+      </li>
+    </ul>
+
+    <!-- v-if 空状态 -->
+    <p v-if="filtered.length === 0" class="empty">没有符合条件的任务</p>
+  </div>
+
+  <script>
+    const { createApp, ref, computed } = Vue
+
+    createApp({
+      setup() {
+        const text = ref('')
+        const filter = ref('all')
+        const todos = ref([
+          { id: 1, text: '学完第 1 章 CDN', done: true },
+          { id: 2, text: '学完第 2 章响应式', done: true },
+          { id: 3, text: '学完第 3 章模板语法', done: false }
+        ])
+
+        // computed：根据 filter 算出过滤后的列表（复习第 2 章）
+        const filtered = computed(() => {
+          if (filter.value === 'todo') return todos.value.filter(t => !t.done)
+          if (filter.value === 'done') return todos.value.filter(t => t.done)
+          return todos.value
+        })
+
+        function add() {
+          if (!text.value) return
+          todos.value.push({ id: Date.now(), text: text.value, done: false })
+          text.value = ''
+        }
+        function remove(id) {
+          todos.value = todos.value.filter(t => t.id !== id)
+        }
+
+        return { text, filter, filtered, add, remove }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
