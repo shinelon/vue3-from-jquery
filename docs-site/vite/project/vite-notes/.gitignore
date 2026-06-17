@@ -1,0 +1,7 @@
+node_modules
+dist
+*.local
+.DS_Store
+
+# Vite 预构建缓存（dev 时自动生成，勿提交）
+.vite

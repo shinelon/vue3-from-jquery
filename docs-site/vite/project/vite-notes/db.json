@@ -1,0 +1,7 @@
+{
+  "notes": [
+    { "id": 1, "title": "安装 Node 和 Vite", "done": true },
+    { "id": 2, "title": "看懂项目结构", "done": false },
+    { "id": 3, "title": "跑通热更新 HMR", "done": false }
+  ]
+}

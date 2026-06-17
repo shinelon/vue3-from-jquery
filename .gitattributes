@@ -1,0 +1,12 @@
+# 强制 docs-site 内容为 LF：sync 脚本在 Windows 上跑完 git status 才能干净（幂等）。
+docs-site/** text eol=lf
+
+# 二进制资源（当前 docs-site 无图片，预留）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary

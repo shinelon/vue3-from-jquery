@@ -130,3 +130,4 @@ nav:
           - A · vite.config 速查: vite/docs/appendices/A-vite.config速查.md
           - B · 常见报错调试: vite/docs/appendices/B-常见报错调试.md
           - C · 下一步: vite/docs/appendices/C-下一步.md
+      - 示例 demo · lib-mode（库模式）: vite/demos/lib-mode/README.md
