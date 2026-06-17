@@ -13,6 +13,10 @@ site_description: >-
   全文以「jQuery 写法 → Vue 写法 → 为什么更好」三栏对照为主线，
   从零搭出一个 CRUD 用户管理系统；另附 Vite 构建工具平行教程。
 docs_dir: docs-site
+# 输出文件级 URL（XX.html 而非 XX/index.html）。
+# 原因：正文里 ../demos/XX/、../project/XX/ 是指向 index.html 的纯目录链接，
+# use_directory_urls:true 会把页面放进 XX/ 子目录、少一级 ../，导致这些链接 404。
+use_directory_urls: false
 
 # 主题：Material
 theme:
@@ -45,9 +49,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 切换至明色模式
-  font:
-    text: Noto Sans SC
-    code: JetBrains Mono
+  # 禁用 Google Fonts 网络字体（fonts.googleapis.com 在中国大陆被墙/极慢，会致首屏白屏）。
+  # 设为 false 后回退系统字体，零外网依赖。
+  font: false
 
 # Markdown 扩展
 markdown_extensions:
@@ -76,11 +80,10 @@ markdown_extensions:
 # 插件
 plugins:
   - search:
-      # 借日语分词近似支持中文搜索（lunr 内置；无额外依赖）
-      # 如构建报错可回退为 lang: [en]
+      # lunr 无中文分词器；[en] 下按 CJK 连续串匹配，多数中文 MkDocs 站点可用。
+      # （ja 并不能真正提升中文召回，且随 lunr 版本有构建报错风险，故不启用。）
       lang:
         - en
-        - ja
 
 # 导航
 nav:

@@ -1,6 +1,10 @@
 # MkDocs 构建产物
 site/
 
+# Node 依赖与构建产物（demos/project 副本里有 package.json，防止误提交）
+node_modules/
+dist/
+
 # Python
 __pycache__/
 *.py[cod]
