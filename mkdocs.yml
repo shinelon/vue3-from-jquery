@@ -8,6 +8,7 @@
 # =============================================================================
 
 site_name: Vue3 入门教程 · jQuery 程序员向
+site_url: http://vue.sunyq.cc/
 site_description: >-
   从 jQuery 的世界，平滑迁移到现代 Vue3 + Vite 开发。
   全文以「jQuery 写法 → Vue 写法 → 为什么更好」三栏对照为主线，

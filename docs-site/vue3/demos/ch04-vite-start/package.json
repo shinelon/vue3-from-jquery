@@ -1,5 +1,10 @@
 {
   "name": "ch04-vite-start",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinelon/vue3-from-jquery.git",
+    "directory": "demos/ch04-vite-start"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",

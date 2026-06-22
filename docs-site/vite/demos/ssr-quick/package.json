@@ -1,5 +1,10 @@
 {
   "name": "ssr-quick-demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinelon/vue3-from-jquery.git",
+    "directory": "vite-tutorial/demos/ssr-quick"
+  },
   "version": "0.0.0",
   "private": true,
   "type": "module",

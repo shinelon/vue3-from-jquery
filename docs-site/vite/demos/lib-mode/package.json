@@ -1,5 +1,10 @@
 {
   "name": "lib-mode-demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinelon/vue3-from-jquery.git",
+    "directory": "vite-tutorial/demos/lib-mode"
+  },
   "version": "0.0.0",
   "private": true,
   "type": "module",

@@ -1,5 +1,10 @@
 {
   "name": "npm-demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinelon/vue3-from-jquery.git",
+    "directory": "npm-tutorial/demos/npm-demo"
+  },
   "version": "1.0.0",
   "private": true,
   "type": "module",

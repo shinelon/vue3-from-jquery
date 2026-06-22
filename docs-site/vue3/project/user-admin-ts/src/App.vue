@@ -6,11 +6,15 @@ import { ElMessageBox, ElMessage } from 'element-plus'
 const userStore = useUserStore() // 一行拿到全局登录态，不用 props
 
 async function handleLogin() {
-  const { value } = await ElMessageBox.prompt('请输入用户名', '登录', {
-    inputPlaceholder: '如：张三'
-  })
-  userStore.login({ name: value || '匿名用户' }) // 调 action
-  ElMessage.success('登录成功')
+  try {
+    const { value } = await ElMessageBox.prompt('请输入用户名', '登录', {
+      inputPlaceholder: '如：张三'
+    })
+    userStore.login({ name: value || '匿名用户' }) // 调 action
+    ElMessage.success('登录成功')
+  } catch {
+    // 用户点了取消或关闭弹窗，什么都不做（避免未捕获的 reject 报错）
+  }
 }
 function handleLogout() {
   userStore.logout()

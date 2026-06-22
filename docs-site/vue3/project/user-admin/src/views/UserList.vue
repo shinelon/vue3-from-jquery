@@ -48,7 +48,12 @@ async function handleDelete(row) {
   } catch {
     return
   }
-  await deleteUser(row.id)
+  try {
+    await deleteUser(row.id)
+  } catch (e) {
+    ElMessage.error('删除失败：' + e.message)
+    return
+  }
   ElMessage.success('删除成功')
   loadData()
 }
