@@ -1,5 +1,10 @@
 {
   "name": "ch05-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinelon/vue3-from-jquery.git",
+    "directory": "demos/ch05-components"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",

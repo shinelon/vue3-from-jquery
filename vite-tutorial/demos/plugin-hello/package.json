@@ -1,5 +1,10 @@
 {
   "name": "plugin-hello-demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinelon/vue3-from-jquery.git",
+    "directory": "vite-tutorial/demos/plugin-hello"
+  },
   "version": "0.0.0",
   "private": true,
   "type": "module",

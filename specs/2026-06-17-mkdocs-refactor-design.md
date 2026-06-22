@@ -23,7 +23,7 @@
 - Vite 教程：`vite-tutorial/docs/`（`00`~`14` + `小结-部署上线.md` + `appendices/` A/B/C）。
 - 可运行代码：`demos/`（17 文件）、`project/`（35 文件）、`vite-tutorial/demos/`（23 文件）；`node_modules` 未被 git 跟踪。
 - 无图片资源（纯文本 + 代码块）。
-- 无 git remote（`repo_url` 暂留空）。
+- git remote：https://github.com/shinelon/vue3-from-jquery（`repo_url` 已配置在 `mkdocs.yml`）。
 - 环境：Python 3.14.2 + pip 25.3 可用；无任何现成 MkDocs 配置。
 - Markdown 内链形式：`../demos/chXX-…/`、`../project/…/`、同目录 `XX-章.md`。
 

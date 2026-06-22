@@ -119,7 +119,12 @@ vue3-glm/
 
 ## 🔧 环境准备
 
-开始前请装好这两样：
+先把项目代码克隆到本地，再装好这两样：
+
+```bash
+git clone https://github.com/shinelon/vue3-from-jquery.git
+cd vue3-from-jquery
+```
 
 ### 1. Node.js（自带 npm）
 

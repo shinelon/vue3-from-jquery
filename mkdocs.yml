@@ -12,6 +12,8 @@ site_description: >-
   从 jQuery 的世界，平滑迁移到现代 Vue3 + Vite 开发。
   全文以「jQuery 写法 → Vue 写法 → 为什么更好」三栏对照为主线，
   从零搭出一个 CRUD 用户管理系统；另附 Vite 构建工具平行教程。
+repo_url: https://github.com/shinelon/vue3-from-jquery
+repo_name: shinelon/vue3-from-jquery
 docs_dir: docs-site
 # 输出文件级 URL（XX.html 而非 XX/index.html）。
 # 原因：正文里 ../demos/XX/、../project/XX/ 是指向 index.html 的纯目录链接，
